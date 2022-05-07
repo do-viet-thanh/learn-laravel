@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function (){
-    return view('home');
-});
+Route::get('/home', [UsersController::class, 'home']);
+Route::get('/creat', [UsersController::class, 'creat']);
+Route::get('/update', [UsersController::class, 'update']);

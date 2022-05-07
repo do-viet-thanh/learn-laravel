@@ -26,14 +26,14 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'password' => Hash::make('password'),
+            'username' => $this->faker->userName,
             'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
-            'gender' => rand(0,1),
-            'age' => rand(0,100),
-            'birth_year' => $this->faker->year,
+            'gender' => rand(1,2),
             'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'date_of_birth' => $this->faker->dateTime(),
+            'introduction' => $this->faker->text(rand(100,255)),
         ];
     }
 }
