@@ -13,9 +13,17 @@ use App\Http\Controllers\UsersController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login', [AuthController::class, 'login']);
-Route::get('/register', [AuthController::class, 'register']);
+Route::prefix('auth')->group(function() {
+    Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+});
 
-Route::get('/home', [UsersController::class, 'home']);
-Route::get('/creat', [UsersController::class, 'creat']);
-Route::get('/update', [UsersController::class, 'update']);
+Route::prefix('users')->group(function() {
+    Route::get('/home', [UsersController::class, 'index'])->name('users.list');
+    Route::get('/creat', [UsersController::class, 'creat'])->name('user.creat');
+    Route::post('/store', [UsersController::class, 'store'])->name('user.store');
+    Route::get('/edit{', [UsersController::class, 'edit'])->name('user.edit');
+    Route::post('/update', [UsersController::class, 'update'])->name('user.update');
+    Route::delete('/delete{id}', [UsersController::class, 'delete'])->name('user.delete');
+});
+

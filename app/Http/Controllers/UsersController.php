@@ -6,13 +6,25 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function home(){
+    public function index(){
         return view('users.home');
     }
     public function creat(){
         return view('users.creat');
     }
-    public function update(){
+    public function store(){
+
+    }
+
+    public function edit($id)
+    {
+
+    }
+    public function update($id){
         return view('users.update');
+    }
+
+    public function delete($id){
+        return view('users.delete');
     }
 }

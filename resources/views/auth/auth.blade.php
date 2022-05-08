@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<div class="main-wrapper">
+<div class="main-wrapper p-40 bg-dark">
     @include('layout.preloader')
     @yield('content')
 </div>
