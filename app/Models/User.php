@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const GENDER_BOY = 1;
+    const GENDER_GIRL = 2;
     /**
      * The attributes that are mass assignable.
      *
@@ -41,4 +43,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

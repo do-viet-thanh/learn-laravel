@@ -17,9 +17,9 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
 
-<body>
-<div class="main-wrapper p-40 bg-dark">
-    @include('layout.preloader')
+<body class="bg-dark">
+<div class="main-wrapper p-t-40 bg-dark">
+    @include('backend.layout.include.preloader')
     @yield('content')
 </div>
 <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>

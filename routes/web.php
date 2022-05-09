@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Backend\UsersController;
+use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,18 @@ Route::prefix('auth')->group(function() {
     Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 });
 
-Route::prefix('users')->group(function() {
-    Route::get('/home', [UsersController::class, 'index'])->name('users.list');
-    Route::get('/creat', [UsersController::class, 'creat'])->name('user.creat');
-    Route::post('/store', [UsersController::class, 'store'])->name('user.store');
-    Route::get('/edit{', [UsersController::class, 'edit'])->name('user.edit');
-    Route::post('/update', [UsersController::class, 'update'])->name('user.update');
-    Route::delete('/delete{id}', [UsersController::class, 'delete'])->name('user.delete');
+Route::group(['prefix'=>'management/','as'=>'backend.'], function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::group(['prefix'=>'users/','as'=>'users.'], function() {
+        Route::get('/', [UsersController::class, 'index'])->name('index');
+        Route::get('create', [UsersController::class, 'create'])->name('create');
+        Route::post('store', [UsersController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [UsersController::class, 'edit'])->name('edit');
+        Route::post('update', [UsersController::class, 'update'])->name('update');
+        Route::delete('delete/{id}', [UsersController::class, 'delete'])->name('delete');
+    });
+
+
 });
+
 

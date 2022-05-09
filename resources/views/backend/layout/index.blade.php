@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}"/>
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/common.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/select2/dist/css/select2.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/jquery-minicolors/jquery.minicolors.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}"/>
@@ -28,17 +29,17 @@
 
 <body>
 <!-- Preloader - style you can find in spinners.css -->
-@include('layout.preloader')
+@include('backend.layout.include.preloader')
 
 <!-- Main wrapper - style you can find in pages.scss -->
 <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
 
 <!-- Topbar header -->
-@include('layout.header')
+@include('backend.layout.include.header')
 <!-- End Topbar header -->
 
 <!-- Left Sidebar -->
-@include('layout.left_sidebar')
+@include('backend.layout.include.left_sidebar')
 <!-- End Left Sidebar  -->
 
     <!-- Page wrapper  -->
@@ -47,16 +48,6 @@
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
                     <h3 class="page-title">@yield('page-tittle')</h3>
-                    <div class="ms-auto text-end">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Library
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>
@@ -74,14 +65,14 @@
         <!-- End Container fluid  -->
 
         <!-- footer -->
-    @include('layout.footer')
+    @include('backend.layout.include.footer')
     <!-- End footer -->
     </div>
     <!-- End Page wrapper  -->
 </div>
 <!-- End Wrapper -->
 
-@include('layout._js_vendor')
+@include('backend.layout.include._js_vendor')
 </body>
 </html>
 

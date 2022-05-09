@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark p-40">
+    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark p-t-40">
         <div class="auth-box bg-dark border-top border-secondary p-40">
             <div>
                 <div class="text-center pt-3 pb-3">
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a class="text-decoration-underline">Have an account? Login!</a>
+                        <a class="text-decoration-underline" href="{{route('auth.login')}}">Have an account? Login!</a>
                     </div>
                 </form>
             </div>

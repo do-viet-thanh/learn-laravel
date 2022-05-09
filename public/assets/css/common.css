@@ -1,0 +1,7 @@
+.w-5{
+    width: 20px;
+}
+.pagination{
+    justify-content: flex-end;
+    margin: 0px;
+}
