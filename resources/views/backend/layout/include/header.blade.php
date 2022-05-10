@@ -41,7 +41,7 @@
                         class="dropdown-menu dropdown-menu-end user-dd animated"
                         aria-labelledby="navbarDropdown"
                     >
-                        <a class="dropdown-item" href="{{route('backend.index')}}"
+                        <a class="dropdown-item" href="{{route('backend.dashboard')}}"
                         ><i class="mdi mdi-view-dashboard"></i>
                             Trang chủ</a
                         >
@@ -51,7 +51,7 @@
                             Người dùng</a
                         >
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{route('auth.login')}}"
+                        <a class="dropdown-item" href="{{route('backend.login.get')}}"
                         ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
                         >
                     </ul>

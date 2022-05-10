@@ -13,11 +13,10 @@ class AdminSeed extends Seeder
      */
     public function run()
     {
+        DB::table('admin')->truncate();
         DB::table('admin')->insert([
             'email' => 'admin@gmail.com',
-            'password' => '123456',
+            'password' => bcrypt('123456'),
         ]);
-
-
     }
 }

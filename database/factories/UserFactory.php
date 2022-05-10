@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'address' => $this->faker->address,
             'gender' => rand(1,2),
             'email_verified_at' => now(),
-            'date_of_birth' => $this->faker->date('m-d-Y'),
+            'date_of_birth' => $this->faker->date(),
             'introduction' => $this->faker->text(rand(100,255)),
         ];
     }

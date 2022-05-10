@@ -76,7 +76,7 @@
                                             <td class="null">{{ $item-> introduction }}</td>
                                             <td>
                                                 <div class="comment-footer d-flex">
-                                                    <a href="{{route('backend.users.update', ['id' => $item -> id])}}">
+                                                    <a href="{{route('backend.users.edit', ['id' => $item -> id])}}">
                                                         <button type="button" class="btn btn-cyan btn-xs">Sửa</button>
                                                     </a>
                                                     <form method="post" action="{{route('backend.users.delete', ['id' => $item -> id])}}">

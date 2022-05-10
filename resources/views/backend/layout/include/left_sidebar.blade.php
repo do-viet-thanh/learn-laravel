@@ -5,7 +5,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.dashboard')}}" aria-expanded="false">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span class="hide-menu">Trang chủ</span>
                     </a>
@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('auth.login')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.logout')}}" aria-expanded="false">
                         <i class="me-2 mdi mdi-logout-variant"></i>
                         <span class="hide-menu">Đăng xuất</span>
                     </a>

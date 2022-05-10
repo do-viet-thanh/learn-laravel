@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 control-label col-form-label">Email <span class="text-danger">(*)</span></label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" class="form-control" id="fname" placeholder="Nhập email" required/>
+                            <input type="email" name="email" class="form-control" id="fname" placeholder="Nhập email" required value="{{ old('email') }}"/>
                         </div>
                     </div>
                     <div class="form-group row">

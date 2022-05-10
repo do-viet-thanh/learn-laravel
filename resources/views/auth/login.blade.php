@@ -14,24 +14,28 @@
               </span>
                 </div>
                 <!-- Form -->
-                <form class="form-horizontal mt-3 p-b-40" id="loginform" action="index.html">
+                <form class="form-horizontal mt-3 p-b-40" id="loginform" action="{{ route('backend.login.post') }}"
+                      method="post">
+                    @csrf
+
+                    @include('backend.layout.include._notification')
+
                     <div class="row pb-4">
                         <div class="col-12">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                       <span
-                          class="input-group-text bg-success text-white h-100"
-                          id="basic-addon1"
+                              class="input-group-text bg-success text-white h-100"
+                              id="basic-addon1"
                       ><i class="mdi mdi-account fs-4"></i
                           ></span>
                                 </div>
-                                <input
-                                    type="text"
-                                    class="form-control form-control-lg"
-                                    placeholder="Email"
-                                    aria-label="Email"
-                                    aria-describedby="basic-addon1"
-                                    required=""
+                                <input value="{{ old('email') }}"
+                                       type="email"
+                                       class="form-control form-control-lg"
+                                       placeholder="Email"
+                                       required=""
+                                       name="email"
                                 />
                             </div>
                             <div class="input-group mb-3">
@@ -41,12 +45,11 @@
                       </span>
                                 </div>
                                 <input
-                                    type="text"
-                                    class="form-control form-control-lg"
-                                    placeholder="Password"
-                                    aria-label="Password"
-                                    aria-describedby="basic-addon1"
-                                    required=""
+                                        type="password"
+                                        class="form-control form-control-lg"
+                                        placeholder="Password"
+                                        required=""
+                                        name="password"
                                 />
                             </div>
                         </div>
@@ -55,25 +58,10 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <div class="pt-4">
-                                    <button
-                                        class="btn btn-info"
-                                        id="to-recover"
-                                        type="button"
-                                    >
-                                        <i class="mdi mdi-lock fs-4 me-1"></i> Lost password?
-                                    </button>
-                                    <button
-                                        class="btn btn-success float-end text-white"
-                                        type="submit"
-                                    >
-                                        Login
-                                    </button>
+                                    <button class="btn btn-success text-white" type="submit">Login</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <a class="text-decoration-underline" href="../auth/register">Creat new account</a>
                     </div>
                 </form>
             </div>

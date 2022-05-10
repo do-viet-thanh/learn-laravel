@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a class="text-decoration-underline" href="{{route('auth.login')}}">Have an account? Login!</a>
+                        <a class="text-decoration-underline" href="{{route('backend.login.get')}}">Have an account? Login!</a>
                     </div>
                 </form>
             </div>
