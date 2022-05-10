@@ -31,9 +31,6 @@ class UsersController extends Controller
 
         return view('backend.users.index', ['data' => $data]);
 
-
-
-
     }
 
     public function create()
@@ -41,8 +38,17 @@ class UsersController extends Controller
         return view('backend.users.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required|unique:users,email',
+            'password' =>   [
+                'required',
+                'regex:/^([a-zA-Z]+)(\d+)?$/',
+                'min:6',
+            ],
+            'username' => 'required|unique:users|max:255',
+        ]);
         $user = new User();
         $user->email = request('email');
         $user->username = request('username');
@@ -62,27 +68,42 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $user = User::where('id',$id);
-        $user->email = request('email');
-        $user->username = request('username');
-        $user->password = bcrypt(request('password'));
-        $user->name = request('name');
-        $user->gender = request('gender');
-        $user->hobbies = request('hobbies');
-        $user->phone = request('phone');
-        $user->address = request('address');
-        $user->date_of_birth = request('date_of_birth');
-        $user->phone_company = request('phone_company');
-        $user->introduction = request('introduction');
+        $users = User::findOrFail($id);
 
-        $user -> save();
-        return redirect()->route('backend.users.index')->with('notification_success','Chỉnh sửa người dùng thành công');
-
+        // điều hướng đến view edit user và truyền sang dữ liệu về user muốn sửa đổi
+        return view('backend.users.update', compact('users'));
     }
 
-    public function update($id)
+    public function update(Request $request ,$id)
     {
-        return view('backend.users.update');
+        $request->validate([
+            'email' => 'required|unique:users,email',
+            'password' =>   [
+                'nullable',
+                'regex:/^([a-zA-Z]+)(\d+)?$/',
+                'min:6',
+            ],
+            'username' => 'required|unique:users|max:255',
+        ]);
+        // gán dữ liệu gửi lên vào biến data
+//        $data = $request->all();
+
+        $data = [
+            'email' => request('email'),
+            'username' => request('username'),
+            'password' => request('password'),
+            'name' => request('name'),
+            'gender' => request('gender'),
+            'hobbies' => request('hobbies'),
+            'phone' => request('phone'),
+            'address' => request('address'),
+            'date_of_birth' => request('date_of_birth'),
+            'phone_company' => request('phone_company'),
+            'introduction' => request('introduction'),
+        ];
+        // Update user
+        User::findOrFail($id)->update($data);
+        return redirect()->route('backend.users.update')->with('notification_success','Update thành công');
     }
 
     public function delete($id)

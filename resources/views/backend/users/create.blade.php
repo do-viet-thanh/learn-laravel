@@ -13,6 +13,15 @@
     <div>
         <div class="card">
             <div class="card-body">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{route('backend.users.store')}}" method="post">
                     @csrf
                     <div class="form-group row">
@@ -86,7 +95,7 @@
                                 </optgroup>
                                 <optgroup label="Android">
                                     <option value="SAMSUNG">Samsung</option>
-                                    <option value="OPPPO">Oppo</option>
+                                    <option value="OPPO">Oppo</option>
                                     <option value="NOKIA">Nokia</option>
                                     <option value="HUAWEI">Huawei</option>
                                     <option value="XIAOMI">Xiaomi</option>

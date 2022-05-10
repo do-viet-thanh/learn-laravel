@@ -13,7 +13,7 @@
     <div>
         <div class="card">
             <div class="card-body">
-                <form action="{{route('backend.users.store')}}" method="post">
+                <form action="{{route('backend.users.update')}}" method="post">
                     @csrf
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 control-label col-form-label">Email *</label>

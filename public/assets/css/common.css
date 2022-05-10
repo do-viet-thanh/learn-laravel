@@ -5,3 +5,8 @@
     justify-content: flex-end;
     margin: 0px;
 }
+@media (max-width: 1500px) {
+    .null{
+        display: none;
+    }
+}

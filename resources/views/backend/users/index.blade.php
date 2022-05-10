@@ -55,9 +55,9 @@
                                         <th scope="col">Ngày sinh</th>
                                         <th scope="col">Giới tính</th>
                                         <th scope="col">Địa chỉ</th>
-                                        <th scope="col">Loại điện thoại</th>
-                                        <th scope="col">Sở thích</th>
-                                        <th scope="col">Giới thiệu ngắn</th>
+                                        <th class="null" scope="col">Loại điện thoại</th>
+                                        <th class="null" scope="col">Sở thích</th>
+                                        <th class="null" scope="col">Giới thiệu ngắn</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,12 +71,12 @@
                                             <td>{{Carbon\Carbon::parse($item-> date_of_birth)->format('d-m-Y')}}</td>
                                             <td>{{ $item-> gender == \App\Models\User::GENDER_BOY ? 'Nam' : 'Nữ'}}</td>
                                             <td>{{ $item-> address }}</td>
-                                            <td>{{ $item-> phone_compansuy }}</td>
-                                            <td>{{ $item-> hobbies }}</td>
-                                            <td>{{ $item-> introduction }}</td>
+                                            <td class="null">{{ $item-> phone_company }}</td>
+                                            <td class="null">{{ $item-> hobbies }}</td>
+                                            <td class="null">{{ $item-> introduction }}</td>
                                             <td>
                                                 <div class="comment-footer d-flex">
-                                                    <a href="{{route('backend.users.update')}}">
+                                                    <a href="{{route('backend.users.update', ['id' => $item -> id])}}">
                                                         <button type="button" class="btn btn-cyan btn-xs">Sửa</button>
                                                     </a>
                                                     <form method="post" action="{{route('backend.users.delete', ['id' => $item -> id])}}">

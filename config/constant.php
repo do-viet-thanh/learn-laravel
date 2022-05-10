@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'BACKEND_PAGINATE' => 25
+    'BACKEND_PAGINATE' => 20
 ];

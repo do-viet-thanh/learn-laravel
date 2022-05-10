@@ -26,7 +26,7 @@ Route::group(['prefix'=>'management/','as'=>'backend.'], function(){
         Route::get('create', [UsersController::class, 'create'])->name('create');
         Route::post('store', [UsersController::class, 'store'])->name('store');
         Route::get('edit/{id}', [UsersController::class, 'edit'])->name('edit');
-        Route::post('update', [UsersController::class, 'update'])->name('update');
+        Route::post('update/{id}', [UsersController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UsersController::class, 'delete'])->name('delete');
     });
 
