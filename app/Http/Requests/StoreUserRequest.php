@@ -23,11 +23,13 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
+        $ruleUsername = request('username') ? 'unique:users' : '';
+
         $rules = [
             'email' => 'required|unique:users,email',
-            'username' => 'unique:users|max:255',
+            'username' => "$ruleUsername|max:255",
             'password' => ['required', 'min:6', 'confirmed'],
-            // 'avatar' => 'bail|nullable|mimes:jpeg,jpg,png,gif|max:1024', // 100KB, 1024kb = 1 MB,
+            'avatar' => 'bail|nullable|mimes:jpeg,jpg,png,gif|max:4096', // 4096kb = 4 MB,
         ];
 
         return $rules;

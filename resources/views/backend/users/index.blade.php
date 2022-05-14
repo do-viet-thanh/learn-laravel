@@ -50,6 +50,7 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Username</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Avatar</th>
                                         <th scope="col">Họ tên</th>
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Ngày sinh</th>
@@ -66,6 +67,13 @@
                                             <td>{{ $item-> id }}</td>
                                             <td>{{ $item-> username }}</td>
                                             <td>{{ $item-> email }}</td>
+                                            <td>
+                                                @if ($item->avatar)
+                                                    <img src="{{ asset($item->avatar) }}" alt="" width="50px">
+                                                @else
+                                                    <img src="{{ asset('backend/image/no-image.jpg') }}" alt="" width="50px">
+                                                @endif
+                                            </td>
                                             <td>{{ $item-> name }}</td>
                                             <td>{{ $item-> phone }}</td>
                                             <td>{{Carbon\Carbon::parse($item-> date_of_birth)->format('d-m-Y')}}</td>

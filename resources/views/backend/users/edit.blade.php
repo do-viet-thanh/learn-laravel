@@ -13,7 +13,7 @@
     <div>
         <div class="card">
             <div class="card-body">
-                <form action="{{route('backend.users.update', ['id' => $user -> id])}}" method="post">
+                <form action="{{route('backend.users.update', ['id' => $user -> id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 control-label col-form-label">Email *</label>
@@ -152,13 +152,14 @@
                         <label class="col-md-3">Avatar</label>
                         <div class="col-md-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="validatedCustomFile"/>
-                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                <input type="file" class="custom-file-input" name="avatar" id="validatedCustomFile"/> <br>
+                                @if ($user->avatar)
+                                    <img src="{{ asset($user->avatar) }}" alt="" width="150px" style="margin-top: 5px">
+                                @endif
                             </div>
-                        </div>
+
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row mt-3">
                         <label for="cono1" class="col-sm-3 control-label col-form-label">Introduction</label>
                         <div class="col-sm-9">
                             <textarea class="form-control" name="introduction">{{ $user->introduction }}</textarea>

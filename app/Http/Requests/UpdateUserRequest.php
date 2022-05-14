@@ -23,6 +23,13 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        return [];
+        $ruleUsername = request('username') ? 'unique:users' : '';
+
+        $rules = [
+            'username' => "$ruleUsername|max:255",
+            'avatar' => 'bail|nullable|mimes:jpeg,jpg,png,gif|max:4096', // 4096kb = 4 MB,
+        ];
+
+        return $rules;
     }
 }

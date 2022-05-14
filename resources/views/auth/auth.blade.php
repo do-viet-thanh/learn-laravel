@@ -24,6 +24,9 @@
 </div>
 <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/libs/loadingoverlay/loadingoverlay.min.js') }}"></script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
+
 <script>
     $(".preloader").fadeOut();
     // ==============================================================

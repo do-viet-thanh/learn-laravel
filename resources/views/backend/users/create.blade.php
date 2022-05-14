@@ -22,7 +22,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{route('backend.users.store')}}" method="post">
+                <form action="{{route('backend.users.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 control-label col-form-label">Email <span class="text-danger">(*)</span></label>
@@ -134,7 +134,7 @@
                         <label class="col-md-3">Ảnh đại diện</label>
                         <div class="col-md-9">
                             <div class="custom-file">
-                                <input type="file" name="avatar" class="custom-file-input" id="validatedCustomFile"/>
+                                <input type="file" name="avatar" class="custom-file-input"/>
                             </div>
                         </div>
                     </div>
