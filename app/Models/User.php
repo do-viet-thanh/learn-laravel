@@ -25,7 +25,6 @@ class User extends Authenticatable
         'date_of_birth',
         'address',
         'gender',
-        'hobbies',
         'email_verified_at',
         'phone_company',
         'introduction',

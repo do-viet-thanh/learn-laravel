@@ -89,7 +89,7 @@
                         <label class="col-md-3 mt-3">Loại điện thoại</label>
                         <div class="col-md-9">
                             <select name="phone_company" class="select2 form-select shadow-none" style="width: 100%; height: 36px">
-                                <option>--- Vui lòng chọn ---</option>
+                                <option readonly="true" value="-1">--- Vui lòng chọn ---</option>
                                 <optgroup label="IOS">
                                     <option value="IPHONE">Iphone</option>
                                 </optgroup>
@@ -107,26 +107,10 @@
                     <div class="form-group row">
                         <label class="col-md-3 mt-3">Sở thích</label>
                         <div class="col-md-9">
-                            <select name="hobbies" class="select2 form-select shadow-none mt-3" multiple="multiple" style="height: 36px; width: 100%">
-                                <optgroup label="Land">
-                                    <option value="AK" selected>Đá bóng</option>
-                                    <option value="HI">Cầu lông</option>
-                                    <option value="OR">Leo núi</option>
-                                    <option value="NV">Chạy bộ</option>
-                                    <option value="AK" selected>Đạp xe</option>
-                                    <option value="HI">Gôn</option>
-                                    <option value="OR">Bóng chuyền</option>
-                                    <option value="NV">Bóng rổ</option>
-                                    <option value="OR">Nhảy</option>
-                                    <option value="NV">Du lịch</option>
-                                </optgroup>
-                                <optgroup label="Underwater">
-                                    <option value="CA" selected>Bơi</option>
-                                    <option value="WA">Câu cá</option>
-                                    <option value="CA">Chèo thuyền</option>
-                                    <option value="WA">Lặn biển</option>
-                                    <option value="WA">Lướt sóng</option>
-                                </optgroup>
+                            <select name="hobbies[]" class="select2 form-select shadow-none mt-3" multiple="multiple" style="height: 36px; width: 100%">
+                                @foreach($hobbies as $hobby)
+                                    <option value="{{ $hobby->id }}" {{ request('hobbies') == $hobby->id ? 'selected' : '' }}>{{ $hobby->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
