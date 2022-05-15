@@ -21,7 +21,7 @@
                             </div>
 
                             <!-- From search -->
-                            <form class="mb-3 d-flex" id="form-search" action="{{route('backend.users.index')}}">
+                            <form class="mb-3 d-flex justify-content-between" id="form-search" action="{{route('backend.users.index')}}">
                                 <div class="form-row d-flex">
                                     <div class="col-sm-1 col-md-1 m-r-10">
                                         <input type="text" name="id" class="form-control" placeholder="ID" value="{{request('id')}}">
@@ -32,14 +32,12 @@
                                     <div class="col-sm-2 col-md-2 m-r-10">
                                         <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" value="{{request('phone')}}">
                                     </div>
-                                    <button type="submit" class="btn btn-secondary btn-sm">Tìm kiếm</button>
+                                    <button type="submit" class="btn btn-secondary btn-sm btn-search">Tìm kiếm</button>
                                 </div>
-
-
+                                <a href="{{route('backend.users.create')}}">
+                                    <button type="button" class="btn btn-outline-secondary mb-3 btn-sm btn-add">Thêm mới</button>
+                                </a>
                             </form>
-                            <a href="{{route('backend.users.create')}}">
-                                <button type="button" class="btn btn-outline-secondary mb-3 btn-sm">Thêm mới</button>
-                            </a>
                             <div class="card-body__head d-flex">
                                 <h5 class="card-title">Danh sách người dùng</h5>
                             </div>
@@ -54,7 +52,7 @@
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Ngày sinh</th>
                                         <th scope="col">Giới tính</th>
-                                        <th scope="col">Địa chỉ</th>
+                                        <th class="null scope="col">Địa chỉ</th>
                                         <th class="null" scope="col">Loại điện thoại</th>
                                         <th class="null" scope="col">Sở thích</th>
                                         <th class="null" scope="col">Giới thiệu ngắn</th>
@@ -70,14 +68,17 @@
                                             <td>{{ $item-> phone }}</td>
                                             <td>{{Carbon\Carbon::parse($item-> date_of_birth)->format('d-m-Y')}}</td>
                                             <td>{{ $item-> gender == \App\Models\User::GENDER_BOY ? 'Nam' : 'Nữ'}}</td>
-                                            <td>{{ $item-> address }}</td>
+                                            <td class="null">{{ $item-> address }}</td>
                                             <td class="null">{{ $item-> phone_company }}</td>
                                             <td class="null">{{ $item-> hobbies }}</td>
                                             <td class="null">{{ $item-> introduction }}</td>
                                             <td>
                                                 <div class="comment-footer d-flex">
-                                                    <a href="{{route('backend.users.update', ['id' => $item -> id])}}">
-                                                        <button type="button" class="btn btn-cyan btn-xs">Sửa</button>
+                                                    <a style="margin-right: 2px; width: 51px;" href="{{route('backend.users.detail', ['id' => $item -> id])}}">
+                                                        <button type="button" class="btn btn-success btn-xs text-white">Chi tiết</button>
+                                                    </a>
+                                                    <a style="margin-right: 2px" href="{{route('backend.users.edit', ['id' => $item -> id])}}">
+                                                        <button type="button" class="btn btn-cyan btn-xs text-white">Sửa</button>
                                                     </a>
                                                     <form method="post" action="{{route('backend.users.delete', ['id' => $item -> id])}}">
                                                         @csrf

@@ -11,7 +11,7 @@
     <title>@yield('tittle')</title>
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon1.png') }}"/>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/common.css') }}"/>

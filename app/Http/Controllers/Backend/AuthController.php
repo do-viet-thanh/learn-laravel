@@ -7,15 +7,20 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function showFormLogin(){
+        return view('auth.login');
+    }
+
     public function login()
     {
-        if (Auth::attempt([
+        if (Auth::guard('admin')->attempt([
             'email' => request('email'),
             'password' => request('password'),
         ])){
-            return view('backend.users.index');
+            return redirect()->route('backend.users.index');
         }
-        return redirect()->back()->with('notification_error','Đăng nhập không thành công');
+        return redirect()->back()->with('notification_error', 'Đăng nhập không thành công')->withInput();
+
     }
 
     public function register()
@@ -25,7 +30,8 @@ class AuthController extends Controller
 
     public function logout()
     {
-        return view('auth.login');
+        Auth::logout();
+        return redirect()->route('backend.login.get');
     }
 
 }

@@ -82,7 +82,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 control-label col-form-label">Ngày sinh</label>
                         <div class="col-sm-9">
-                            <input type="date" name="date_of_birth" class="form-control" placeholder="mm/dd/yyyy" value="{{request('date_of_birth')}}"/>
+                            <input type="date" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{request('date_of_birth')}}"/>
                         </div>
                     </div>
                     <div class="form-group row">
